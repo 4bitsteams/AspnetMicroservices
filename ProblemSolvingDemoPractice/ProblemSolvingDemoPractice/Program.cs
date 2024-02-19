@@ -12,6 +12,40 @@ namespace ProblemSolvingDemoPractice
             Console.ReadKey();
         }
 
+        private static void JaggedArraysDemo()
+        {
+            int[][] jaggedArray = new int[4][];
+
+            jaggedArray[0] = new int[1];
+            jaggedArray[1] = new int[3];
+            jaggedArray[2] = new int[2];
+            jaggedArray[3] = new int[4];
+
+            Console.WriteLine("Enter the Number for Jagged Array!");
+            string inputValue = "";
+            for (int i = 0; i < jaggedArray.Length; i++)
+            {
+                for (int j = 0; j < jaggedArray[i].Length; j++)
+                {
+                    inputValue = Console.ReadLine();
+                    jaggedArray[i][j] = int.Parse(inputValue);
+                }
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Print the Jagged Array!");
+
+            for (int i = 0; i < jaggedArray.Length; i++)
+            {
+                for (int j = 0; j < jaggedArray[i].Length; j++)
+                {
+                    Console.Write(jaggedArray[i][j]);
+                    Console.Write("\0");
+                }
+
+                Console.WriteLine();
+            }
+        }
         private static void MultiDimArrays()
         {
             int[,] arr = new int[,] { { 1, 2, 3 }, { 3, 2, 1 } };
@@ -55,7 +89,6 @@ namespace ProblemSolvingDemoPractice
 
             Console.ReadKey();
         }
-
         private static void Test1BaseArray()
         {
             Array array = Array.CreateInstance(typeof(int), new[] { 4 }, new[] { 1 });
