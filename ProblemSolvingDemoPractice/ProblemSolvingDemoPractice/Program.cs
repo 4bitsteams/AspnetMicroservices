@@ -7,7 +7,8 @@ namespace ProblemSolvingDemoPractice
         static void Main(string[] args)
         {
             ArraysDemo();
-            Console.WriteLine("Hello World!");
+            Test1BaseArray();
+            Console.ReadKey();
         }
 
         private static void ArraysDemo()
@@ -36,6 +37,24 @@ namespace ProblemSolvingDemoPractice
             array2.SetValue(10,0);
 
            Console.ReadKey();
+        }
+
+        private static void Test1BaseArray()
+        {
+            Array array=Array.CreateInstance(typeof(int), new[] { 4 }, new[] {1});
+            array.SetValue(2019, 1);
+            array.SetValue(2020, 2);
+            array.SetValue(2021, 3);
+            array.SetValue(2022, 4);
+
+            Console.WriteLine($"Starting Index {array.GetLowerBound(0)}");
+            Console.WriteLine($"Ending Index {array.GetUpperBound(0)}");
+
+            //for (int i = array.GetLowerBound(0); i < =array.GetUpperBound(0); i++)
+            for (int i = 0;i < array.Length;i++)    
+            {
+                Console.WriteLine($"{array.GetValue(i)} at index {i}");
+            }
         }
     }
 }
