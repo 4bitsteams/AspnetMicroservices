@@ -9,7 +9,21 @@ namespace ProblemSolvingDemoPractice
             ArraysDemo();
             Test1BaseArray();
             MultiDimArrays();
+            IterateOver(new[] { 1, 2, 3 });
             Console.ReadKey();
+        }
+
+        private static unsafe void IterateOver(int[] array)
+        {
+            fixed (int* ptr = array)
+            {
+                int* ptr2 = ptr;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    Console.Write(*ptr2);
+                    ptr2++;
+                }
+            }
         }
 
         private static void JaggedArraysDemo()
