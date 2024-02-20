@@ -13,6 +13,47 @@ namespace ProblemSolvingDemoPractice
             Console.ReadKey();
         }
 
+        private static void ArrayTimeComplexity(object[] array)
+        {
+            //access by index O(1)
+
+            Console.WriteLine(array[0]);
+
+            int length = array.Length;
+
+            object elementNeedToFind = new object();
+
+            //Searching for an Element O(n)
+            for (int i = 0; i < length; i++)
+            {
+                if (array[i] == elementNeedToFind)
+                {
+                    Console.WriteLine("Exist/Found");
+                }
+            }
+
+            //Add to a Full Array
+            var bigArray = new int[length * 2];
+            Array.Copy(array, bigArray, length);
+            bigArray[length + 1] = 10;
+
+            //Add to the End when there`s Some Space
+            //O(1)
+            array[length + 1] = 10;
+
+            //O(1)
+            array[6] = null;
+
+        }
+
+
+        private static void RemoveAt(object[] array, int index)
+        {
+            var newArray = new object[array.Length - 1];
+            Array.Copy(array, 0, newArray, 0, index);
+            Array.Copy(array, index + 1, newArray, index, array.Length - 1 - index);
+        }
+
         private static unsafe void IterateOver(int[] array)
         {
             fixed (int* ptr = array)
