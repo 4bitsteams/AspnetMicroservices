@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ProblemSolvingDSA
+﻿namespace ProblemSolvingDSA
 {
     internal class Program
     {
