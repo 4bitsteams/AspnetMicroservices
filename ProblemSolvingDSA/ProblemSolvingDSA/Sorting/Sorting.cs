@@ -15,6 +15,22 @@
                 }
             }
         }
+
+        public static void SelectionSort(int[] array)
+        {
+            for (int i = array.Length - 1; i > 0; i--)
+            {
+                int maxElement = 0;
+                for (int j = 1; j <= i; j++)
+                {
+                    if (array[maxElement] < array[j])
+                    {
+                        maxElement = j;
+                    }
+                }
+                Swap(array, i, maxElement);
+            }
+        }
         private static void Swap(int[] array, int i, int j)
         {
             if (i == j)
