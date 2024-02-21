@@ -31,6 +31,20 @@
                 Swap(array, i, maxElement);
             }
         }
+
+        public static void InsertionSort(int[] array)
+        {
+            for (int i = 1; i < array.Length; i++)
+            {
+                int currentSort = array[i];
+                int j = 0;
+                for (j = i; j > 0 && array[j - 1] > currentSort; j--)
+                {
+                    array[j] = array[j - 1];
+                }
+                array[j] = currentSort;
+            }
+        }
         private static void Swap(int[] array, int i, int j)
         {
             if (i == j)
