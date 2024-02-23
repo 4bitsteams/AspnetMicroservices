@@ -4,6 +4,10 @@
     {
         static void Main(string[] args)
         {
+            int [] array= new[] { 11, 7, 13, 56, 37, 28, 17, 9,1 };
+            Sorting.Sorting.MergeShort(array);
+            var result = array;
+            
             ArraysDemo();
             Test1BaseArray();
             MultiDimArrays();

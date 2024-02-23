@@ -64,6 +64,54 @@
                 gap /= 3;
             }
         }
+
+        public static void MergeShort(int[] array)
+        {
+            int[] auxArray = new int[array.Length];
+            sort(0, array.Length - 1);
+
+            void sort(int low, int high)
+            {
+                if (high <= low)
+                    return;
+
+                int mid = low + (high - low) / 2;
+                sort(low, mid);
+                sort(mid + 1, high);
+                Merge(low, mid, high);
+            }
+
+            void Merge(int low, int mid, int high)
+            {
+                if (array[mid] <= array[mid + 1])
+                    return;
+
+                int i = low;
+                int j = mid + 1;
+                Array.Copy(array, low, auxArray, low, high - low + 1);
+
+                for (int k = low; k <= high; k++)
+                {
+
+                    if (mid < i)
+                    {
+                        array[k] = auxArray[j++];
+                    }
+                    else if (high < j)
+                    {
+                        array[k] = auxArray[i++];
+                    }
+                    else if (auxArray[j] < auxArray[i])
+                    {
+                        array[k] = auxArray[j++];
+                    }
+                    else
+                    {
+                        array[k] = auxArray[i++];
+                    }
+                }
+            }
+        }
         private static void Swap(int[] array, int i, int j)
         {
             if (i == j)
