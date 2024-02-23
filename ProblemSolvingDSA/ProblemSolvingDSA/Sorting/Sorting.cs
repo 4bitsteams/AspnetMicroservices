@@ -1,4 +1,6 @@
-﻿namespace ProblemSolvingDSA.Sorting
+﻿using System.Collections.Concurrent;
+
+namespace ProblemSolvingDSA.Sorting
 {
     public class Sorting
     {
@@ -65,6 +67,46 @@
             }
         }
 
+
+        public static void QuickSort(int[] array)
+        {
+            Sort(0, array.Length - 1);
+
+            void Sort(int low, int high)
+            {
+                if (high <= low) return;
+
+                int j = Partition(low, high);
+                Sort(low, j - 1);
+                Sort(j + 1, high);
+            }
+
+            int Partition(int low, int high)
+            {
+                int i = low;
+                int j = high + 1;
+
+                int pivot = array[low];
+                while (true)
+                {
+                    while (array[++i] < pivot)
+                    {
+                        if (i == high) break;
+                    }
+
+                    while (pivot < array[--j])
+                    {
+                        if (j == low) break;
+                    }
+
+                    if (i >= j) break;
+                    Swap(array, i, j);
+                }
+                Swap(array, low, j);
+                return j;
+            }
+        }
+
         public static void MergeShort(int[] array)
         {
             int[] auxArray = new int[array.Length];
@@ -88,7 +130,12 @@
 
                 int i = low;
                 int j = mid + 1;
-                Array.Copy(array, low, auxArray, low, high - low + 1);
+                //Array.Copy(array, low, auxArray, low, high - low + 1);
+
+                for (int h = low; h <= high; h++)
+                {
+                    auxArray[h]= array[h];
+                }
 
                 for (int k = low; k <= high; k++)
                 {
