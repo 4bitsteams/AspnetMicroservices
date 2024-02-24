@@ -48,6 +48,21 @@ namespace ProblemSolvingDSA.Sorting
             }
         }
 
+        public static void InsertionSortTwo(int[] array)
+        {
+            for (int i = 1; i < array.Length; i++)
+            {
+                int currentSort = array[i];
+                int j = i - 1;
+                for (; j >= 0 && array[j] > currentSort;)
+                {
+                    array[j + 1] = array[j];
+                    j = j - 1;
+                }
+                array[j + 1] = currentSort;
+            }
+        }
+
         public static void ShellSort(int[] array)
         {
             int gap = 1;
@@ -134,7 +149,7 @@ namespace ProblemSolvingDSA.Sorting
 
                 for (int h = low; h <= high; h++)
                 {
-                    auxArray[h]= array[h];
+                    auxArray[h] = array[h];
                 }
 
                 for (int k = low; k <= high; k++)

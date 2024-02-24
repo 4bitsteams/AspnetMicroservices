@@ -62,6 +62,12 @@ namespace Algorithm_DataStruc_Lib.Tests
         }
 
         [Test]
+        public void InsertionSortTwo_ValidInput_SortedOutput()
+        {
+            RunTestsForSortAlgorithm(Sorting.InsertionSortTwo);
+        }
+
+        [Test]
         public void ShellSort_ValidInput_SortedOutput()
         {
             RunTestsForSortAlgorithm(Sorting.ShellSort);

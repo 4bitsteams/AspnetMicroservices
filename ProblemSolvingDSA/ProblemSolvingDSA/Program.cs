@@ -4,8 +4,9 @@
     {
         static void Main(string[] args)
         {
-            int [] array= new[] { 11, 7, 13, 56, 37, 28, 17, 9,1 };
-            Sorting.Sorting.MergeShort(array);
+            //int [] array= new[] { 11, 7, 13, 56, 37, 28, 17, 9,1 };
+            int [] array= new[] { 5, 2, 4, 6, 1, 3 };
+            Sorting.Sorting.InsertionSortTwo(array);
             var result = array;
             
             ArraysDemo();
