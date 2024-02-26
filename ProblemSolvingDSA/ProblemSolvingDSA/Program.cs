@@ -5,10 +5,14 @@
         static void Main(string[] args)
         {
             //int [] array= new[] { 11, 7, 13, 56, 37, 28, 17, 9,1 };
-            int [] array= new[] { 5, 2, 4, 6, 1, 3 };
-            Sorting.Sorting.QuickSort(array);
-            var result = array;
-            
+            //int [] array= new[] { 5, 2, 4, 6, 1, 3 };
+            //Sorting.Sorting.QuickSort(array);
+            //var result = array;
+            //[1,2,3,6,9,8,7,4,5]
+            //int[][] arrayData = {new [] { 1, 2, 3 }, new[] { 4, 5, 6 }, new[] { 7, 8, 9 } };
+            //[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+            int[][] arrayData = {new [] { 1, 2, 3, 4 }, new[] { 5, 6, 7, 8 }, new[] { 9, 10, 11, 12 } };
+            var result= Solution.SpiralOrder(arrayData);
             ArraysDemo();
             Test1BaseArray();
             MultiDimArrays();
