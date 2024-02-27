@@ -1,7 +1,31 @@
-﻿namespace ProblemSolvingDSA
+﻿using System.Numerics;
+
+namespace ProblemSolvingDSA
 {
     public static class Solution
     {
+        public static int[] ProductExceptSelf(int[] nums)
+        {
+            int n = nums.Length;
+
+            int[] temp1 = new int[n];
+
+            temp1[0] = 1;
+
+            for (int i = 1; i < n; i++)
+            {
+                temp1[i] = temp1[i - 1] * nums[i - 1];
+            }
+
+            int surfixProduct = 1;
+            for (int i = n - 1; i >= 0; i--)
+            {
+                temp1[i] = temp1[i] * surfixProduct;
+                surfixProduct = nums[i] * surfixProduct;
+            }
+
+            return temp1;
+        }
         public static IList<int> SpiralOrder(int[][] matrix)
         {
             int top = 0;
